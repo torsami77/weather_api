@@ -1,8 +1,10 @@
 import express, { Application, Request, Response }  from "express";
+import { config } from 'dotenv';
 import bodyParser from "body-parser";
-//import router from './routes';
+import router from './routes';
 
 const app: Application = express();
+config();
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -13,9 +15,10 @@ app.get('/', (req: Request, res: Response) => {
     })
 });
 
-//app.use('/api/v1/', router);
+app.use('/api/v1/', router);
 
-app.listen(8080, () => {
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
     console.log(`App running at http://localhost: 8080`);
 });
 

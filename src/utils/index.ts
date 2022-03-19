@@ -1,12 +1,18 @@
-import citiList from './city.list.json';
+import cityList from './city.list';
 import {
-    status, successResponse, errorResponse, conflictResponse,
+    messages, status, successResponse, errorResponse, conflictResponse,
 } from './responses';
+import {
+    calculateDistance, City
+} from './helpers';
 
 export {
-    citiList,
+    cityList,
+    messages,
     status,
     successResponse,
     errorResponse,
     conflictResponse,
+    calculateDistance, 
+    City
 };
