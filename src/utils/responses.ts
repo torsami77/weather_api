@@ -1,4 +1,10 @@
 import { Response } from 'express';
+
+const messages = {
+  notFound: 'No city found with provided parameter(s)',
+  success: 'Request processed successfully',
+  error: 'Request not completed, please try again',
+}
     
   const status = {
     success: 200,
@@ -16,14 +22,12 @@ import { Response } from 'express';
     interface ResponseTypes {
       statusCode:Number,
       message?:string,
-      error?: string,
       data?:any,
     };
 
     const response: ResponseTypes = {
         statusCode,
-        message: statusCode <= 299 ? message : '',
-        error: statusCode >= 299 ? message : '',
+        message: message,
         data,
     }
     
@@ -39,6 +43,7 @@ import { Response } from 'express';
   const conflictResponse = (res:Response, statusCode:number, message:string, data = null) => forgeResponse(res, statusCode, message, data);
     
   export {
+    messages,
     status,
     successResponse,
     errorResponse,
