@@ -6,19 +6,25 @@ https://mail.google.com/mail/u/0?ui=2&ik=3047b8dbd6&attid=0.1&permmsgid=msg-f:17
 ## Stacks
 - Express
 - Node.js
--  Typescript
+- Typescript
+- Docker
 
 
-## Installation
+## Set up
 
-After cloning this repo ```git clone https://github.com/torsami77/weather_api.git```,  check into the root directory ```cd weather_api```, and run ``` npm install``` to install all the dependencies and devDevpendencies. **See dependencies, and "devDependencies" section in package.json file for list of all packages that will be installed**
+After cloning this repo ```git clone https://github.com/torsami77/weather_api.git```,  check into the root directory ```cd weather_api```, and run ``` npm install``` to install all the dependencies and devDevpendencies. 
+**See sample_dev file for sample of environment variables and keys**
+**See dependencies, and "devDependencies" section in package.json file for list of all packages that would be installed**
+**Ensure you have Docker installed and runnning before running docker-test**
 
-Use ```npm run test``` to run test
+Use ```npm run docker-test``` to run dockerized test or ```npm run test``` to run test
 ## Scripts
 
-```npm run dev```   : for run development mode
-```npm start```   : for run production mode
+```npm run dev```   : to run development mode
+```npm run build``` : to transpile build. see ./dist folder
+```npm start```   : to run production mode
 ```npm test```   :  to run sample test on sample cases
+```npm run docker-test```   :  to run sample test cases in docker container. Ensure you have docker running
 
 
 ## API Documentation
