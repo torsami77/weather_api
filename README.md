@@ -1,6 +1,5 @@
-# Klarna-weather_api# Backend-mmk Technical Assessment
-
-This exercise demonstrare skills proficiency in regards to the following requirement
+# Klarna-weather_api 
+This exercise demonstrates skill proficiency in regards to the following requirement
 https://mail.google.com/mail/u/0?ui=2&ik=3047b8dbd6&attid=0.1&permmsgid=msg-f:1727624122377070157&th=17f9c0fc67ae664d&view=att&disp=inline&realattid=2cb2748f3a468188_0.1
 
 ## Stacks
