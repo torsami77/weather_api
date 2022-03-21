@@ -34,7 +34,7 @@ Use ```npm run docker-test``` to run dockerized test or ```npm run test``` to ru
 ```
 {
         statusCode:  200,
-		message:  'Welcome to klarna-weather-API',
+	message:  'Welcome to klarna-weather-API',
  }
 ```
 ___
