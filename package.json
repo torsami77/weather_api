@@ -2,10 +2,13 @@
   "name": "weather_api",
   "version": "1.0.0",
   "description": "Klarna Coding Challenge",
-  "main": "scr/index.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon ./src/index.ts",
-    "test": "mocha --require ts-node/register src/test/index.ts --recursive --exit || true"
+    "build": "tsc --outDir dist",
+    "start": "npm run build && node ./dist/index.js",
+    "dev": "NODE_OPTIONS=\"--max-old-space-size=12000\" nodemon ./src/index.ts",
+    "test": "NODE_OPTIONS=\"--max-old-space-size=12000\" nyc mocha --require ts-node/register src/test/index.test.ts --recursive --exit || true",
+    "docker-test": "docker build -t klarna-weather-api-image . && docker run -p 8080:8080 --name klarna-weather-api-container klarna-weather-api-image"
   },
   "repository": {
     "type": "git",
@@ -18,22 +21,46 @@
   },
   "homepage": "https://github.com/torsami77/weather_api#readme",
   "dependencies": {
+    "@types/validator": "^13.7.1",
     "axios": "^0.26.1",
     "body-parser": "^1.19.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "express-validator": "^6.14.0"
+    "express-validator": "^6.14.0",
+    "ts-node": "^10.7.0"
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "@types/chai": "^4.3.0",
     "@types/express": "^4.17.13",
     "@types/mocha": "^9.1.0",
     "@types/node": "^17.0.21",
-    "@types/validator": "^13.7.1",
+    "@types/sinon": "^10.0.11",
+    "@types/sinon-chai": "^3.2.8",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
-    "ts-node": "^10.7.0"
+    "nyc": "^15.1.0",
+    "sinon": "^13.0.1",
+    "sinon-chai": "^3.7.0"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "check-coverage": true,
+    "all": true,
+    "include": [
+        "src/**/!(*.test.*).[tj]s?(x)"
+    ],
+    "exclude": [
+        "src/test/**/*.*"
+    ],
+    "reporter": [
+        "html",
+        "lcov",
+        "text",
+        "text-summary"
+    ],
+    "report-dir": "coverage"
   }
 }
