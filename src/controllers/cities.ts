@@ -76,11 +76,11 @@ export default class Cities_Controller {
             }
            const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${result?.coord?.lat}&lon=${result?.coord?.lon}&appid=${process?.env?.WEATHER_API_KEY}`;
 
-            const get_weather = await axios.get(
+            const get_weather: any = await axios.get(
                 weather_url
             );
 
-            if(get_weather){
+            if(get_weather && get_weather.data){
                 const { data } = get_weather;
                 const return_data = {
                     type: data.weather[0].main,
