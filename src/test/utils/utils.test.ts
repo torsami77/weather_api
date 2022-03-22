@@ -3,7 +3,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import { successResponse, errorResponse } from '../../utils';
+import { successResponse, errorResponse, status } from '../../utils';
 
 chai.use(chaiHttp);
 chai.use(sinonChai);
@@ -21,7 +21,7 @@ describe('Response Functions', () => {
       sinon.stub(res, 'status').returnsThis();
 
       errorResponse(res, 404, 'Not found!');
-      expect(res.status).to.have.been.calledWith(404);
+      expect(res.status).to.have.been.calledWith(status.notfound);
     });
   });
 
@@ -34,7 +34,7 @@ describe('Response Functions', () => {
       sinon.stub(res, 'status').returnsThis();
 
       successResponse(res, 200, 'Success!');
-      expect(res.status).to.have.been.calledWith(200);
+      expect(res.status).to.have.been.calledWith(status.success);
     });
   });
 });
