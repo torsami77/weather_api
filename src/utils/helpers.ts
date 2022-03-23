@@ -67,3 +67,7 @@ export interface GetWeatherDataType {
     name: string,
     cod: number
     }
+
+    export interface Get_Weather_Request {
+        data: GetWeatherDataType
+    }
