@@ -3,7 +3,7 @@ import {
     messages, status, successResponse, errorResponse, conflictResponse,
 } from './responses';
 import {
-    calculateDistance, City
+    calculateDistance, City, GetWeatherDataType
 } from './helpers';
 
 export {
@@ -14,5 +14,6 @@ export {
     errorResponse,
     conflictResponse,
     calculateDistance, 
-    City
+    City,
+    GetWeatherDataType
 };

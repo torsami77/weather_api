@@ -2,7 +2,7 @@ import { Request, Response }  from "express";
 import axios from 'axios';
 import { config } from 'dotenv';
 import {
-    cityList, status, messages, successResponse, errorResponse, calculateDistance, City, 
+    cityList, status, messages, successResponse, errorResponse, calculateDistance, City, GetWeatherDataType
 } from '../utils/index';
 
 config();
@@ -76,7 +76,7 @@ export default class Cities_Controller {
             }
            const weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${result?.coord?.lat}&lon=${result?.coord?.lon}&appid=${process?.env?.WEATHER_API_KEY}`;
 
-            const get_weather: any = await axios.get(
+            const get_weather = await axios.get<GetWeatherDataType>(
                 weather_url
             );
 
